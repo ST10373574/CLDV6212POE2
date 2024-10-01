@@ -1,0 +1,116 @@
+﻿@model IEnumerable<ABCRetailApp.Models.Order>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        html, body {
+            height: 100%; /* Ensure the body covers the full height */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            background-color: orange; /* Set the background color */
+            color: #363636; /* Ensure text color is readable */
+            font-family: 'Arial', sans-serif; /* Ensure font consistency */
+        }
+
+        .container {
+            background-color: #ffffff; /* White background for content area */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px; /* Ensure the container has a maximum width */
+        }
+
+        .alert-success {
+            background-color: orange;
+            color: #ffffff;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .button-primary {
+            background-color: #00d1b2;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            transition: background-color 0.3s ease;
+        }
+
+            .button-primary:hover {
+                background-color: #00b89c;
+            }
+
+        .table-container {
+            margin: 2rem 0;
+        }
+
+        .table thead th {
+            background-color: orange;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .table tbody tr:nth-child(odd) {
+            background-color: #fafafa;
+        }
+
+        .table tbody tr:nth-child(even) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title is-3">Orders</h2>
+
+        @if (TempData["OrderSuccess"] != null)
+        {
+            <div class="alert-success">
+                @TempData["OrderSuccess"]
+            </div>
+        }
+
+        <a href="@Url.Action("Create", "Order")" class="button button-primary mb-3">Create New Order</a>
+
+        <div class="table-container">
+            <table class="table is-striped is-bordered is-hoverable">
+                <thead>
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var order in Model)
+                    {
+                        <tr>
+                            <td>@order.OrderDate.ToString("yyyy/MM/dd HH:mm:ss")</td>
+                            <td>@order.CustomerId</td> <!-- Placeholder for Customer Name -->
+                            <td>@order.ProductId</td> <!-- Placeholder for Product Name -->
+                            <td>@order.Quantity</td>
+                            <td>@order.Price.ToString("C")</td>
+                            <td>@order.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

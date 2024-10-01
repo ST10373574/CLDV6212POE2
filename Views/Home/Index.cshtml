@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Retail Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: orange;
+            color: #333;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+            .hero h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                font-weight: bold;
+                color: #fff;
+            }
+
+            .hero p {
+                font-size: 1.25rem;
+                color: #fff;
+            }
+
+        .card {
+            background-color: #4f4f4f; /* Darker grey for the card background */
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+            }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-action a {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .footer {
+            padding: 1rem;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>Welcome to ABC Retail!</h1>
+            <p>Your one-stop shop for managing customer profiles and products.</p>
+        </div>
+
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Customer Profiles</span>
+                        <p>Manage and view customer profiles. Access detailed information about our valued customers.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="@Url.Action("Index", "Customer")">View Customers</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l4">
+                <div class="card">
+                    <div class="card-content">
+                        <span class="card-title">Products</span>
+                        <p>Manage and view product details. Explore the products we offer and manage your inventory.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="@Url.Action("Index", "Product")">View Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 ABC Retail. All rights reserved.</p>
+    </footer>
+
+    <!-- Optional JavaScript; include the necessary scripts for Materialize functionality -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+
